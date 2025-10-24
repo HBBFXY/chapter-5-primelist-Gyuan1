@@ -1,14 +1,17 @@
 def PrimeList(N):
+    # 处理N小于2的情况
     if N <= 2:
         return ""
-    primes = []
+    prime_list = []
+    # 遍历2到N-1的所有数
     for num in range(2, N):
-        # 质数判断：从2到num-1检查是否能整除
         is_prime = True
-        for i in range(2, num):
+        # 检查是否为质数
+        for i in range(2, int(num ** 0.5) + 1):
             if num % i == 0:
                 is_prime = False
                 break
         if is_prime:
-            primes.append(str(num))
-    return " ".join(primes)
+            prime_list.append(str(num))
+    # 转换为空格分隔的字符串
+    return " ".join(prime_list)
